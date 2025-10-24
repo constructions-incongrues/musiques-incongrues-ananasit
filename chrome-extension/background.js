@@ -6,7 +6,7 @@ chrome.runtime.onInstalled.addListener(() => {
   // Menu contextuel pour le texte sélectionné
   chrome.contextMenus.create({
     id: 'ananasit-selection',
-    title: 'Envoyer vers Musiques Incongrues',
+    title: 'Envoyer vers la sélection vers Musiques Incongrues',
     contexts: ['selection']
   });
 
