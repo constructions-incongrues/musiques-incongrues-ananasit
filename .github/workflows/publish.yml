@@ -5,10 +5,20 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      publish-target:
+        description: 'Publish target audience'
+        required: false
+        default: 'trustedTesters'
+        type: choice
+        options:
+          - false
+          - trustedTesters
+          - true
 
 jobs:
   build:
-    name: Publish webextension
+    name: Build and Publish Extension
     runs-on: ubuntu-latest
 
     steps:
@@ -34,4 +44,5 @@ jobs:
         client-id: ${{ secrets.CLIENT_ID }}
         client-secret: ${{ secrets.CLIENT_SECRET }}
         refresh-token: ${{ secrets.REFRESH_TOKEN }}
-        publish: test
+        publish: true
+        publish-target: ${{ github.event.inputs.publish-target || 'trustedTesters' }}
