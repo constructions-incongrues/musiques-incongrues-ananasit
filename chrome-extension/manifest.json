@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Ananas It ! (Beta)",
   "version": "0.1.0",
-  "description": "Envoyez des URLs et du texte sélectionné vers le forum des Musiques Incongrues",
+  "description": "Envoyez des URLs et du texte sélectionné vers le forum des Musiques Incongrues. CETTE EXTENSION EST POUR LES TESTS BÊTA.",
   "permissions": [
     "activeTab",
     "contextMenus",
