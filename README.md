@@ -78,7 +78,7 @@ Pour publier l'extension manuellement :
 2. Empaquetez l'extension en ZIP :
    ```bash
    cd chrome-extension
-   zip -r ../ananasit-chrome-extension.zip . -x "*.md" -x "icons/logo-*.png"
+   zip -r ../ananasit-extension.zip . -x "*.md" -x "icons/logo-*.png"
    ```
 3. Soumettez sur le [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole/)
 

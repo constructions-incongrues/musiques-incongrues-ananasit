@@ -7,7 +7,7 @@ const { execSync } = require('child_process');
 const ROOT_DIR = path.join(__dirname, '..');
 const EXTENSION_DIR = path.join(ROOT_DIR, 'chrome-extension');
 const DIST_DIR = path.join(ROOT_DIR, 'dist');
-const OUTPUT_FILE = path.join(DIST_DIR, 'ananasit-chrome-extension.zip');
+const OUTPUT_FILE = path.join(DIST_DIR, 'ananasit-extension.zip');
 
 console.log('🍍 Building Ananasit Chrome Extension...\n');
 

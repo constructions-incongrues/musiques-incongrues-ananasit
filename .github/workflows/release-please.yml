@@ -16,6 +16,7 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
       version: ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
+      upload_url: ${{ steps.release.outputs.upload_url }}
 
     steps:
       - name: Run release-please
@@ -23,7 +24,6 @@ jobs:
         uses: googleapis/release-please-action@v4
         with:
           release-type: node
-          package-name: ananasit-chrome-extension
 
   publish-extension:
     needs: release-please
@@ -64,7 +64,7 @@ jobs:
       - name: Upload & publish to Chrome Web Store
         uses: mnao305/chrome-extension-upload@v5.0.0
         with:
-          file-path: dist/ananasit-chrome-extension.zip
+          file-path: dist/ananasit-extension.zip
           extension-id: ${{ secrets.EXTENSION_ID }}
           client-id: ${{ secrets.CLIENT_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
@@ -72,12 +72,10 @@ jobs:
           publish: true
           publish-target: trustedTesters
 
-      - name: Upload release asset
-        uses: actions/upload-release-asset@v1
+      - name: Upload ZIP to GitHub Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.release-please.outputs.upload_url }}
-          asset_path: ./dist/ananasit-chrome-extension.zip
-          asset_name: ananasit-chrome-extension-${{ needs.release-please.outputs.tag_name }}.zip
-          asset_content_type: application/zip
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload ${{ needs.release-please.outputs.tag_name }} \
+            dist/ananasit-extension.zip \
+            --clobber
