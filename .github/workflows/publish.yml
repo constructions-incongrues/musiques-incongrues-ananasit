@@ -50,3 +50,10 @@ jobs:
         refresh-token: ${{ secrets.REFRESH_TOKEN }}
         publish: ${{ github.event.inputs.publish }}
         publish-target: ${{ github.event.inputs.publish-target }}
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ananasit-extension-${{ github.run_number }}
+        path: dist/ananasit-extension.zip
+        retention-days: 90
