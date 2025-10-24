@@ -13,7 +13,7 @@ on:
           - true
       publish-target:
         description: 'Target audience'
-        required: false
+        required: true
         default: 'default'
         type: choice
         options:
