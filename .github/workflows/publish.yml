@@ -1,6 +1,10 @@
 name: Publish to Chrome Web Store (Manual)
 
 on:
+  push:
+    branches:
+      - main
+
   workflow_dispatch:
     inputs:
       publish:
@@ -9,16 +13,16 @@ on:
         default: 'false'
         type: choice
         options:
-          - false
-          - true
+          - 'false'
+          - 'true'
       publish-target:
         description: 'Target audience'
         required: true
         default: 'default'
         type: choice
         options:
-          - trustedTesters
-          - default
+          - 'trustedTesters'
+          - 'default'
 
 jobs:
   build:
