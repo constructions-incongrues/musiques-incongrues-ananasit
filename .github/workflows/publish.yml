@@ -1,20 +1,24 @@
-name: Publish to Chrome Web Store
+name: Publish to Chrome Web Store (Manual)
 
 on:
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
     inputs:
-      publish-target:
-        description: 'Publish target audience'
-        required: false
-        default: 'trustedTesters'
+      publish:
+        description: 'Publish ?'
+        required: true
+        default: 'false'
         type: choice
         options:
           - false
-          - trustedTesters
           - true
+      publish-target:
+        description: 'Target audience'
+        required: false
+        default: 'default'
+        type: choice
+        options:
+          - trustedTesters
+          - default
 
 jobs:
   build:
@@ -44,5 +48,5 @@ jobs:
         client-id: ${{ secrets.CLIENT_ID }}
         client-secret: ${{ secrets.CLIENT_SECRET }}
         refresh-token: ${{ secrets.REFRESH_TOKEN }}
-        publish: true
-        publish-target: ${{ github.event.inputs.publish-target || 'trustedTesters' }}
+        publish: ${{ github.event.inputs.publish }}
+        publish-target: ${{ github.event.inputs.publish-target }}

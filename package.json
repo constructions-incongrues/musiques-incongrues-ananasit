@@ -1,6 +1,6 @@
 {
   "name": "ananasit-chrome-extension",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Extension Chrome pour envoyer des URLs et du texte vers le forum des Musiques Incongrues",
   "scripts": {
     "build": "node scripts/build.js",
