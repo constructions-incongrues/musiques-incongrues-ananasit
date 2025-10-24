@@ -1,0 +1,22 @@
+{
+  "name": "ananasit-chrome-extension",
+  "version": "1.0.0",
+  "description": "Extension Chrome pour envoyer des URLs et du texte vers le forum des Musiques Incongrues",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "package": "npm run build",
+    "validate": "node scripts/validate.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/constructions-incongrues/musiques-incongrues-ananasit"
+  },
+  "keywords": [
+    "chrome-extension",
+    "musiques-incongrues",
+    "ananasit"
+  ],
+  "author": "Musiques Incongrues",
+  "license": "MIT",
+  "devDependencies": {}
+}

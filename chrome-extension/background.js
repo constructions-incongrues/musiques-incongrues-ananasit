@@ -13,7 +13,7 @@ chrome.runtime.onInstalled.addListener(() => {
   // Menu contextuel pour la page (sans sélection)
   chrome.contextMenus.create({
     id: 'ananasit-page',
-    title: 'Envoyer cette page vers Ananasit',
+    title: 'Envoyer cette page vers Musiques Incongrues',
     contexts: ['page']
   });
 });
